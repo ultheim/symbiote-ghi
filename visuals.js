@@ -886,6 +886,14 @@ window.initSymbiosisAnimation = function() {
         // Existing logic
         handleInputCoords(e.clientX, e.clientY);
     });
+	container.addEventListener('touchstart', e => {
+        // 1. Immediate Physics Reaction
+        handleInputCoords(e.touches[0].clientX, e.touches[0].clientY);
+        
+        // 2. Update Tooltip Coords (so tooltips work on tap)
+        clientMouseX = e.touches[0].clientX;
+        clientMouseY = e.touches[0].clientY;
+    }, {passive: false});
     container.addEventListener('touchmove', e => {
         e.preventDefault(); 
         handleInputCoords(e.touches[0].clientX, e.touches[0].clientY);
@@ -1346,4 +1354,5 @@ window.registerContext = (ctx) => { _canvasContextRef = ctx; };
     }
     requestAnimationFrame(socialWebLoop);
 })();
+
 
