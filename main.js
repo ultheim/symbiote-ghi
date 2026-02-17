@@ -34,7 +34,7 @@ window.PALETTES = {
 };
 
 let USER_API_KEY = localStorage.getItem("symbiosis_api_key") || "";
-const OPENROUTER_MODEL = "x-ai/grok-4.1-fast"; 
+const OPENROUTER_MODEL = "minimax/minimax-m2.5"; 
 
 let chatHistory = []; 
 
@@ -1172,4 +1172,5 @@ window.reflectOnLife = function() {
     const quote = window.GOOD_LIFE_ARCHIVE.key_facts[Math.floor(Math.random() * window.GOOD_LIFE_ARCHIVE.key_facts.length)];
     window.speak(quote);
     window.triggerSocialWeb();
+
 };
